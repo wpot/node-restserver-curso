@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
-app.use(require('./router/usuario'));
+app.use(require('./router/index'));
 
 
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err, res) => {
@@ -21,6 +21,8 @@ mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useUnifiedTopology:
     console.log('base de datos online');
 });
 mongoose.set('useCreateIndex', true);
+
+
 
 app.listen(process.env.PORT, () => {
     console.log('escuchando puesto');
